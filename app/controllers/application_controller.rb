@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require 'pry'
 
 class App < Sinatra::Base
 
@@ -7,5 +8,11 @@ class App < Sinatra::Base
     get '/' do
       erb :super_hero
     end
+
+      post '/team' do
+        @team = params[:team]
+        @members = params[:team][:heroes]
+        erb :super_hero
+      end
 
 end
